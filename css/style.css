@@ -1,0 +1,52 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	position: relative;
+	margin: 0;
+}
+
+.clear {
+	display: block;
+	clear: both;
+}
+
+.row {
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+section {
+	padding: 0 15px;
+	width: 50%;
+	float: left;
+	min-height: 100vh;
+}
+
+#drag-box {
+	position: relative;
+	background: #E6E6E6;
+}
+
+#drag-block {
+	position: absolute;
+	top: calc(50% - 150px);
+	left: calc(50% - 150px);
+	width: 300px;
+	height: 300px;
+	background: #808080;
+}
+
+#drag-block .header {
+	padding: 15px;
+	background: #ccc;
+	text-align: center;
+	cursor: pointer;
+}
+
+#drag-block .content {
+	padding: 0 15px;
+}
