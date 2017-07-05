@@ -12,7 +12,9 @@ window.onload = function () {
 			blockPosX = elementToDrag.offsetLeft,
 			blockPosY = elementToDrag.offsetTop,
 			deltaX = startX - blockPosX,
-			deltaY = startY - blockPosY;
+			deltaY = startY - blockPosY,
+			maxBottom = dragBox.clientHeight - elementToDrag.clientHeight ,
+			maxRight = dragBox.clientWidth- elementToDrag.clientWidth;
 
 		dragBox.addEventListener('mousemove', moveHendler, true);
 		dragBox.addEventListener('mouseup', removeHendler, true);
@@ -20,7 +22,7 @@ window.onload = function () {
 		function moveHendler(e) {
 			let leftVal = e.clientX - dragBox.offsetLeft - deltaX,
 				topVal = e.clientY - dragBox.offsetTop - deltaY;
-			if (leftVal < 0 || topVal < 0) {
+			if (leftVal < 0 || leftVal > maxRight|| topVal < 0||topVal > maxBottom) {
 				removeHendler();
 				elementToDrag.removeAttribute("style")
 				return false;
