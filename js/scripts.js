@@ -1,12 +1,17 @@
 window.onload = function () {
 	'use strict'
-	let dragBlock = document.getElementById('drag-block'),
-		dragBox = document.getElementById('drag-box');
+	let dragBlock = document.getElementById('drag-block');
 
-	dragBlock.getElementsByClassName('header')[0].addEventListener('mousedown', function (e) {
-		drag(dragBlock, e)
+	dragBlock.drag('.header', '#drag-box');
+}
+Object.prototype.drag = function (eventElement, dragBox) {
+	'use strict'
+	let self = this;
+	dragBox = document.querySelector(dragBox);
+	self.querySelector(eventElement).addEventListener('mousedown', function (e) {
+		dragIt(self, e)
 	});
-	function drag(elementToDrag, event) {
+	function dragIt(elementToDrag, event) {
 		let startX = event.clientX - dragBox.offsetLeft,
 			startY = event.clientY - dragBox.offsetTop,
 			blockPosX = elementToDrag.offsetLeft,
@@ -33,4 +38,4 @@ window.onload = function () {
 			dragBox.removeEventListener('mouseup', removeHendler, true);
 		}
 	}
-}
+};
